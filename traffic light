@@ -1,0 +1,56 @@
+#include<iostream>
+#include<graphics.h>
+#include<math.h>
+class Base
+{
+ public:
+ 
+ int a= 300;
+ int b= 50;
+};
+class program:public Base
+{
+int gd= DETECT,gm;
+public:
+program()
+{
+start(); 
+getch();
+closegraph();
+}
+void start()
+{
+rectangle(250, 50, 350, 350);
+circle(a, a-200, b);
+circle(a, a-100, b);
+circle(a, a, b);
+//creating animation
+for(int i =0; i < 10; i++)
+{
+setcolor( RED);
+floodfill(300, 100, WHITE);
+//outtextxy(280, 100, "STOP");
+delay(1000);
+setcolor( BLACK);
+floodfill(300, 100, WHITE);
+setcolor( YELLOW);
+floodfill(300, 200, WHITE);
+//outtextxy(280, 200, "HOLD");
+delay(1000);
+setcolor( BLACK);
+floodfill(300, 200, WHITE);
+setcolor( GREEN);
+floodfill(300, 300, WHITE);
+//outtextxy(280, 300, "GO");
+delay(1000);
+setcolor( BLACK);
+floodfill(300, 300, WHITE);
+}
+}
+};
+int main()
+{
+program *obj = new program();
+initgraph(&gd,&gm,NULL);
+return 0;
+}
